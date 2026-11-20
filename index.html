@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Loremaqua — Лиза Попова</title>
+<meta name="description" content="Лиза Попова. Авторская практика Loremaqua в тёплой воде и на суше.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* Мир: белая галерея, в которую вставлена вода. Видео даёт цвет, всё остальное — чёрное, белое и воздух.
+   Отсылки: тонкие прописные заголовки (Cartier, Bemont), огромные фразы на прокрутке (Apple), капсулы и чистая сетка (Потемки). */
+:root{
+  --white:#FFFFFF;
+  --paper:#F5F4F1;
+  --ink:#111312;
+  --grey:#6E7270;
+  --line:#E2E1DD;
+  --water:#0F4A50;     /* единственный цвет — глубина воды, редко */
+  --display:'Cormorant Garamond', 'Times New Roman', serif;
+  --body:'Onest', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --wrap:1320px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font-family:var(--body);font-weight:300;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-family:var(--display);font-weight:300;text-wrap:balance}
+:focus-visible{outline:1.5px solid var(--ink);outline-offset:4px;border-radius:2px}
+section[id]{scroll-margin-top:80px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+.label{font-size:12px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--grey)}
+.caps{font-family:var(--display);font-weight:300;text-transform:uppercase;letter-spacing:.06em;line-height:1.02}
+.h2{font-size:clamp(40px,5.2vw,76px)}
+.h2 em,.caps em{font-style:italic;text-transform:none;letter-spacing:0}
+.text{font-size:18px;color:#3A3D3C;max-width:34em}
+
+/* Капсулы */
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:999px;font:400 15px/1 var(--body);text-decoration:none;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+.pill:hover{background:var(--ink);color:var(--white)}
+.pill.solid{background:var(--ink);color:var(--white)}
+.pill.solid:hover{background:var(--water);border-color:var(--water)}
+.pill.light{border-color:rgba(255,255,255,.7);color:#fff}
+.pill.light:hover{background:#fff;color:var(--ink);border-color:#fff}
+.pill.white{background:#fff;border-color:#fff;color:var(--ink)}
+.pill.white:hover{background:transparent;color:#fff}
+
+/* Шапка */
+.top{position:fixed;inset:0 0 auto;z-index:50;color:#fff;transition:background .4s,color .4s,border-color .4s;border-bottom:1px solid transparent}
+.top.solid{background:rgba(255,255,255,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--ink);border-color:var(--line)}
+.top .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:78px;gap:24px}
+.nav{display:flex;gap:28px}
+.nav a{font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;opacity:.85;padding:6px 0}
+.nav a:hover{opacity:1}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;justify-self:center}
+.logo-word{font-family:var(--display);font-weight:300;font-size:24px;letter-spacing:.32em;text-transform:uppercase;line-height:1;margin-right:-.32em}
+.top-right{justify-self:end;display:flex;align-items:center;gap:20px}
+.top-right .tel{font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;opacity:.85}
+.top .pill{min-height:40px;padding:0 20px;font-size:14px;border-color:currentColor;color:inherit}
+.top .pill:hover{background:currentColor}
+.top .pill:hover span{color:var(--ink)}
+.top.solid .pill:hover span{color:#fff}
+@media (max-width:980px){.nav,.top-right .tel{display:none}.top .wrap{grid-template-columns:auto 1fr}.logo{justify-self:start}}
+
+/* Первый экран: видео на весь экран */
+.hero{position:relative;min-height:max(640px, 100svh);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate;background:#0B1C1D}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0) 45%,rgba(0,0,0,.6) 100%)}
+.hero-in{padding-bottom:56px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
+.hero .label{color:rgba(255,255,255,.85)}
+.hero h1{font-size:clamp(46px,9vw,140px);letter-spacing:.08em;line-height:.95;text-transform:uppercase;margin-right:-.08em;animation:up 1.4s cubic-bezier(.2,.7,.2,1) both}
+.hero .sub{font-family:var(--display);font-style:italic;font-weight:300;font-size:clamp(22px,2.4vw,32px);line-height:1.25;animation:up 1.4s .15s cubic-bezier(.2,.7,.2,1) both}
+.hero .row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:6px;animation:up 1.4s .3s cubic-bezier(.2,.7,.2,1) both}
+.scroll-cue{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:22px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.7);text-decoration:none}
+.scroll-cue i{width:1px;height:42px;background:linear-gradient(180deg,#fff,transparent);display:block;animation:drip 2.4s ease-in-out infinite}
+@keyframes up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* Большая фраза */
+.statement{padding:160px 0 140px;text-align:center}
+.statement p.big{font-family:var(--display);font-weight:300;font-size:clamp(36px,5.6vw,84px);line-height:1.08;letter-spacing:-.005em;max-width:15em;margin:0 auto}
+.statement .w{color:#BFC1BF;transition:color .6s ease}
+.statement .w.on{color:var(--ink)}
+.statement p.big em{font-style:italic}
+.statement .label{margin-bottom:40px}
+
+/* О Лизе */
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;background:var(--paper)}
+.about-photo{min-height:760px;position:relative;overflow:hidden}
+.about-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.about-text{padding:120px clamp(32px,7vw,120px);display:flex;flex-direction:column;justify-content:center;gap:30px}
+.about-text .quote{font-family:var(--display);font-weight:300;font-size:clamp(30px,3vw,44px);line-height:1.2}
+.about-text .quote em{font-style:italic}
+.sign{display:flex;align-items:center;gap:18px;margin-top:10px}
+.sign span{font-family:var(--display);font-size:26px;font-style:italic}
+.sign small{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+@media (max-width:900px){.about{grid-template-columns:1fr}.about-photo{min-height:560px}.about-text{padding:72px 32px}}
+
+/* О практике */
+.practice{padding:160px 0}
+.practice-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px) minmax(0,1fr);gap:56px;align-items:center}
+.practice .side{display:flex;flex-direction:column;gap:22px}
+.practice .side.r{align-self:end}
+.vwrap{position:relative;border-radius:28px;overflow:hidden;background:#0B1C1D}
+.vwrap video{width:100%;aspect-ratio:9/16;object-fit:cover}
+.vwrap .cover{position:absolute;inset:0;border:0;padding:0;cursor:pointer;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55));display:flex;align-items:center;justify-content:center;color:#fff;font:inherit}
+.vwrap .cover.hide{display:none}
+.play{width:84px;height:84px;border-radius:50%;border:1px solid rgba(255,255,255,.8);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);background:rgba(255,255,255,.12);transition:transform .4s,background .4s}
+.cover:hover .play{transform:scale(1.08);background:#fff}
+.cover:hover .play path{fill:var(--ink)}
+.vwrap .meta{position:absolute;left:0;right:0;bottom:22px;text-align:center;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.mini-facts{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.mini-facts div{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
+.mini-facts b{font-weight:400}
+@media (max-width:980px){.practice-grid{grid-template-columns:1fr}.vwrap{max-width:400px;margin:0 auto;width:100%}.practice .side.r{align-self:auto}}
+
+/* Шаги (1)(2)(3) */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:64px}
+.step{padding:48px 40px 56px 0;display:flex;flex-direction:column;gap:14px}
+.step + .step{padding-left:40px;border-left:1px solid var(--line)}
+.step .n{font-family:var(--display);font-weight:300;font-size:88px;line-height:.9;color:#C9CBC8}
+.step h3{font-size:34px;font-weight:400}
+.step p{color:var(--grey)}
+.steps-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding-top:28px}
+@media (max-width:860px){.steps{grid-template-columns:1fr}.step,.step+.step{padding:36px 0;border-left:0}.step+.step{border-top:1px solid var(--line)}}
+
+/* Форматы — как витрина */
+.formats{padding:40px 0 160px}
+.fmt-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:56px}
+.fmt-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.fmt{text-decoration:none;display:flex;flex-direction:column;gap:22px}
+.fmt .media{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--paper)}
+.fmt .media video{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.fmt:hover .media video{transform:scale(1.04)}
+.fmt .media .tag{position:absolute;top:20px;left:20px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.25);backdrop-filter:blur(8px);border-radius:999px;padding:8px 14px}
+.fmt .cap{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:20px}
+.fmt h3{font-size:clamp(34px,3.4vw,48px);text-transform:uppercase;letter-spacing:.06em}
+.fmt .cap span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);white-space:nowrap}
+.fmt p{color:var(--grey);font-size:17px}
+.fmt .more{font-size:13px;letter-spacing:.18em;text-transform:uppercase;display:inline-flex;gap:10px;align-items:center}
+.fmt .more i{display:block;width:28px;height:1px;background:currentColor;transition:width .4s}
+.fmt:hover .more i{width:52px}
+@media (max-width:860px){.fmt-grid{grid-template-columns:1fr}}
+
+/* Опыт */
+.exp{padding:160px 0;background:var(--paper)}
+.exp-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:80px}
+.exp-list{list-style:none;margin:0;padding:0;border-top:1px solid #D6D5D0}
+.exp-list li{display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px;padding:30px 0;border-bottom:1px solid #D6D5D0;align-items:baseline}
+.exp-list .y{font-family:var(--display);font-size:30px;font-weight:300;font-variant-numeric:lining-nums}
+.exp-list .t{font-size:20px;font-weight:300}
+.exp-list .t small{display:block;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--grey);margin-top:6px}
+.exp .pill{margin-top:40px}
+@media (max-width:900px){.exp-grid{grid-template-columns:1fr;gap:48px}.exp-list li{grid-template-columns:72px minmax(0,1fr)}}
+
+/* Цена */
+.price{padding:160px 0}
+.price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:64px}
+.p-card{border:1px solid var(--line);padding:48px;display:flex;flex-direction:column;gap:20px;min-height:360px}
+.p-card .label{color:var(--grey)}
+.p-card h3{font-size:34px;font-weight:400}
+.p-card .sum{margin-top:auto;font-family:var(--display);font-weight:300;font-size:clamp(56px,6vw,88px);line-height:1;font-variant-numeric:lining-nums;letter-spacing:-.01em}
+.p-card .sum small{font-family:var(--body);font-size:15px;color:var(--grey);letter-spacing:0}
+.p-card .sum.tbd{font-size:32px;font-style:italic;color:var(--grey)}
+.p-card.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.p-card.dark .label,.p-card.dark .sum small{color:rgba(255,255,255,.6)}
+.price-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:28px;color:var(--grey)}
+@media (max-width:760px){.price-grid{grid-template-columns:1fr}.p-card{padding:32px;min-height:280px}}
+
+/* Финальное видео + запись */
+.book{position:relative;color:#fff;overflow:hidden;isolation:isolate;background:#0B1C1D}
+.book > video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.book::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.45) 60%,rgba(0,0,0,.3))}
+.book-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:64px;align-items:center;padding-top:160px;padding-bottom:160px}
+.book .label{color:rgba(255,255,255,.75)}
+.book .h2{margin:24px 0 36px}
+.msgr{display:flex;flex-wrap:wrap;gap:12px}
+.form{background:#fff;color:var(--ink);padding:44px;display:flex;flex-direction:column;gap:24px}
+.form h3{font-size:34px;font-weight:400}
+.form .hint{color:var(--grey);font-size:15px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+.field input{font:300 18px var(--body);color:var(--ink);border:0;border-bottom:1px solid #CFCFCB;padding:10px 0;background:transparent;border-radius:0}
+.field input:focus{outline:none;border-color:var(--ink)}
+.field input::placeholder{color:#A9ABA9}
+.check{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.45;color:var(--grey)}
+.check input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--ink);flex:0 0 auto}
+.ok{display:none;flex-direction:column;gap:16px}
+.ok.show{display:flex}
+@media (max-width:900px){.book-grid{grid-template-columns:1fr;padding-top:110px;padding-bottom:110px}.form{padding:32px 26px}}
+
+/* Отзывы */
+.reviews{padding:160px 0}
+.rev-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:64px;border-top:1px solid var(--line)}
+.rev{margin:0;padding:44px 40px 44px 0;display:flex;flex-direction:column;gap:26px}
+.rev + .rev{padding-left:40px;border-left:1px solid var(--line)}
+.rev blockquote{margin:0;font-family:var(--display);font-style:italic;font-weight:300;font-size:26px;line-height:1.35}
+.rev figcaption{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
+@media (max-width:900px){.rev-grid{grid-template-columns:1fr}.rev,.rev+.rev{padding:36px 0;border-left:0}.rev+.rev{border-top:1px solid var(--line)}}
+
+/* Вопросы */
+.faq-sec{padding:40px 0 160px}
+.faq-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:80px}
+.faq{border-top:1px solid var(--line)}
+.faq:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:30px 0;font-family:var(--display);font-size:clamp(24px,2.4vw,32px);font-weight:300;line-height:1.2}
+.faq summary::-webkit-details-marker{display:none}
+.faq .pm{flex:0 0 40px;height:40px;border-radius:50%;border:1px solid var(--line);position:relative;transition:background .3s,border-color .3s}
+.faq .pm::before,.faq .pm::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1px;background:var(--ink);transform:translate(-50%,-50%)}
+.faq .pm::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .35s}
+.faq[open] .pm{background:var(--ink);border-color:var(--ink)}
+.faq[open] .pm::before,.faq[open] .pm::after{background:#fff}
+.faq[open] .pm::after{transform:translate(-50%,-50%) rotate(0)}
+.faq p{padding:0 64px 32px 0;color:var(--grey);font-size:18px}
+@media (max-width:900px){.faq-grid{grid-template-columns:1fr;gap:40px}.faq p{padding-right:0}}
+
+/* Подвал */
+.foot{border-top:1px solid var(--line);padding:80px 0 36px}
+.foot-word{font-family:var(--display);font-weight:300;text-transform:uppercase;letter-spacing:.2em;font-size:clamp(44px,10.5vw,170px);line-height:1;text-align:center;margin-right:-.2em;white-space:nowrap}
+.foot-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;margin-top:72px;padding-top:40px;border-top:1px solid var(--line);font-size:15px;color:var(--grey)}
+.foot-cols h4{margin:0 0 14px;font-size:12px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
+.foot-cols a{display:block;text-decoration:none;color:var(--grey);padding:3px 0}
+.foot-cols a:hover{color:var(--ink)}
+.legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:56px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9A9C9A}
+@media (max-width:860px){.foot-cols{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Плавающая круглая запись */
+.float-book{position:fixed;right:28px;bottom:28px;z-index:40;width:104px;height:104px;border-radius:50%;background:#fff;color:var(--ink);display:flex;align-items:center;justify-content:center;text-align:center;font-size:11px;letter-spacing:.18em;text-transform:uppercase;line-height:1.5;text-decoration:none;box-shadow:0 10px 40px rgba(0,0,0,.14);transition:transform .4s, opacity .4s}
+.float-book:hover{transform:scale(1.06)}
+.float-book svg{position:absolute;inset:0;animation:rot 18s linear infinite}
+.float-book.hidden{opacity:0;pointer-events:none;transform:scale(.8)}
+@keyframes rot{to{transform:rotate(360deg)}}
+@media (max-width:600px){.float-book{width:84px;height:84px;right:16px;bottom:16px;font-size:10px}}
+
+/* Сертификат */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(17,19,18,.7);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:24px}
+.modal.open{display:flex}
+.modal-box{position:relative;max-width:620px;width:100%;max-height:100%;overflow:auto;background:#fff;padding:20px}
+.modal-box img{width:100%;height:auto}
+.modal-box p{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin:14px 4px 4px}
+.modal-close{position:sticky;top:0;float:right;width:44px;height:44px;border-radius:50%;border:1px solid var(--ink);background:#fff;color:var(--ink);font-size:20px;cursor:pointer;margin:0 0 8px 8px}
+
+/* Телефон */
+@media (max-width:600px){
+  .wrap{padding:0 20px}
+  .top .wrap{height:64px;gap:12px}
+  .logo{gap:8px}
+  .logo svg{width:22px;height:22px}
+  .logo-word{font-size:17px;letter-spacing:.2em;margin-right:-.2em}
+  .top .pill{min-height:38px;padding:0 16px;font-size:13px}
+  .hero h1{font-size:13.5vw;letter-spacing:.04em;margin-right:-.04em}
+  .hero-in{padding-bottom:36px;gap:20px}
+  .statement{padding:100px 0 90px}
+  .practice,.exp,.price,.reviews{padding:100px 0}
+  .formats{padding:20px 0 100px}
+  .faq-sec{padding:20px 0 100px}
+  .about-photo{min-height:480px}
+  .step .n{font-size:64px}
+  .foot-word{font-size:12vw;letter-spacing:.1em;margin-right:-.1em}
+  .foot-cols{grid-template-columns:1fr}
+  .book-grid{padding-top:90px;padding-bottom:90px}
+  .msgr .pill{flex:1 1 auto}
+  .p-card .sum{font-size:56px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .statement .w{color:var(--ink)}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <clipPath id="mclip"><circle cx="20" cy="20" r="18.5"></circle></clipPath>
+    <symbol id="mark" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="18.5" fill="none" stroke="currentColor" stroke-width="1.2"></circle>
+      <path clip-path="url(#mclip)" d="M0 22 C 6 17.5, 11 17.5, 17 21.5 S 28 25.5, 40 20 V40 H0Z" fill="currentColor"></path>
+      <circle cx="26" cy="13" r="2.2" fill="currentColor"></circle>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="top" id="top-bar">
+  <div class="wrap">
+    <nav class="nav" aria-label="Разделы">
+      <a href="#practice">Практика</a>
+      <a href="#formats">Форматы</a>
+      <a href="#experience">Опыт</a>
+      <a href="#price">Цена</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="logo" href="#hero" aria-label="Loremaqua — в начало">
+      <svg width="26" height="26"><use href="#mark"></use></svg>
+      <span class="logo-word">Loremaqua</span>
+    </a>
+    <div class="top-right">
+      <a class="tel" href="#booking">Контакты</a>
+      <a class="pill" href="#booking"><span>Записаться</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- 1. Первый экран -->
+<section class="hero" id="hero">
+  <video src="media/hero-water.mp4" poster="media/hero-water.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="wrap hero-in">
+    <p class="label">Лиза Попова · авторская практика</p>
+    <h1>Loremaqua</h1>
+    <p class="sub">Практика в тёплой воде и на суше</p>
+    <div class="row">
+      <a class="pill white" href="#booking">Записаться</a>
+      <a class="pill light" href="#practice">О практике</a>
+    </div>
+    <a class="scroll-cue" href="#intro">Листайте<i></i></a>
+  </div>
+</section>
+
+<!-- Большая фраза (Apple) -->
+<section class="statement" id="intro">
+  <div class="wrap">
+    <p class="label">Loremaqua</p>
+    <p class="big" id="big">Вернуться к себе через тело. Больше двадцати лет я работаю <em>с водой</em> и <em>с телом</em>.</p>
+  </div>
+</section>
+
+<!-- 2. О Лизе -->
+<section class="about">
+  <div class="about-photo"><img src="media/img_1747.jpg" alt="Лиза Попова" width="1200" height="1800" loading="lazy"></div>
+  <div class="about-text">
+    <p class="label">О Лизе</p>
+    <p class="quote">Вода держит тело, когда ему наконец можно <em>ничего не делать</em>.</p>
+    <p class="text">[Текст «О Лизе» из текста для сайта — 2–3 абзаца о пути, подходе и о том, почему вода.]</p>
+    <div class="sign"><span>Лиза Попова</span><small>основатель Loremaqua</small></div>
+  </div>
+</section>
+
+<!-- 3. О практике + 5. Как проходит -->
+<section class="practice" id="practice">
+  <div class="wrap">
+    <div class="practice-grid">
+      <div class="side">
+        <p class="label">О практике</p>
+        <h2 class="h2 caps">Практика<br>в <em>тёплой</em><br>воде</h2>
+      </div>
+      <div class="vwrap">
+        <video id="pv" src="media/practice.mp4" poster="media/practice.jpg" preload="metadata" playsinline></video>
+        <button class="cover" id="pv-cover" type="button" aria-label="Смотреть видео о практике">
+          <span class="play"><svg width="26" height="26" viewBox="0 0 28 28" aria-hidden="true"><path d="M9 6l14 8-14 8z" fill="#fff"></path></svg></span>
+          <span class="meta">Смотреть · 0:33</span>
+        </button>
+      </div>
+      <div class="side r">
+        <p class="text">Занятие начинается с запроса. Дальше тело расслабляется… [полный текст «О практике»]</p>
+        <div class="mini-facts">
+          <div><span>Длительность</span><b>1–2 часа</b></div>
+          <div><span>Форматы</span><b>вода · суша</b></div>
+          <div><span>С ватсу</span><b>с 2012 года</b></div>
+        </div>
+      </div>
+    </div>
+
+    <ol class="steps" style="list-style:none;padding-left:0">
+      <li class="step"><span class="n">(1)</span><h3>Запрос</h3><p>Что важно почувствовать.</p></li>
+      <li class="step"><span class="n">(2)</span><h3>Тёплая вода</h3><p>Расслабление, движение, дыхание.</p></li>
+      <li class="step"><span class="n">(3)</span><h3>Разговор</h3><p>Что отозвалось, что дальше.</p></li>
+    </ol>
+    <div class="steps-foot"><span class="label">Длительность занятия — от 1 до 2 часов</span><a class="pill" href="#booking">Записаться</a></div>
+  </div>
+</section>
+
+<!-- 4. Два формата -->
+<section class="formats" id="formats">
+  <div class="wrap">
+    <div class="fmt-head">
+      <div>
+        <p class="label">Два формата</p>
+        <h2 class="h2 caps" style="margin-top:20px">В воде <em>или</em> на суше</h2>
+      </div>
+      <p class="text" style="max-width:24em">Формат выбираем вместе — по запросу и по тому, насколько вам сейчас комфортно в воде.</p>
+    </div>
+    <div class="fmt-grid">
+      <a class="fmt" href="#booking">
+        <div class="media"><video src="media/format-water.mp4" poster="media/format-water.jpg" autoplay muted loop playsinline aria-hidden="true"></video><span class="tag">01</span></div>
+        <div class="cap"><h3>В воде</h3><span>17 000 ₽ / час</span></div>
+        <p>Тёплая вода, погружение — по готовности.</p>
+        <span class="more">Записаться <i></i></span>
+      </a>
+      <a class="fmt" href="#booking">
+        <div class="media"><video src="media/format-land.mp4" poster="media/format-land.jpg" autoplay muted loop playsinline aria-hidden="true"></video><span class="tag">02</span></div>
+        <div class="cap"><h3>На суше</h3><span>[цена уточнить]</span></div>
+        <p>Массажный стол, техники для тела и дыхания.</p>
+        <span class="more">Записаться <i></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Опыт -->
+<section class="exp" id="experience">
+  <div class="wrap exp-grid">
+    <div>
+      <p class="label">Опыт и образование</p>
+      <h2 class="h2 caps" style="margin-top:20px">Двадцать<br>лет <em>в воде</em></h2>
+      <a class="pill" href="#certificate" id="cert-open">Посмотреть сертификаты</a>
+    </div>
+    <ol class="exp-list">
+      <li><span class="y">2012</span><span class="t">Знакомство с ватсу<small>терапия в тёплой воде</small></span></li>
+      <li><span class="y">—</span><span class="t">Обучение у Томаса Майерса<small>Anatomy Trains</small></span></li>
+      <li><span class="y">—</span><span class="t">Фридайвинг и тренерская практика</span></li>
+      <li><span class="y">—</span><span class="t">Авторская методика Loremaqua</span></li>
+      <li><span class="y">™</span><span class="t">Товарный знак Loremaqua<small>свидетельство № 1074811</small></span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7. Стоимость -->
+<section class="price" id="price">
+  <div class="wrap">
+    <p class="label">Стоимость и формат</p>
+    <h2 class="h2 caps" style="margin-top:20px">Стоимость</h2>
+    <div class="price-grid">
+      <div class="p-card dark">
+        <span class="label">Формат 01</span>
+        <h3>Практика в тёплой воде</h3>
+        <p class="sum">17 000 ₽ <small>/ час</small></p>
+      </div>
+      <div class="p-card">
+        <span class="label">Формат 02</span>
+        <h3>Практика на суше</h3>
+        <p class="sum tbd">[цена уточнить]</p>
+      </div>
+    </div>
+    <div class="price-foot"><span>Длительность занятия — от 1 до 2 часов</span><a class="pill solid" href="#booking">Записаться</a></div>
+  </div>
+</section>
+
+<!-- 8. Запись — снова вода -->
+<section class="book" id="booking">
+  <video src="media/format-water.mp4" poster="media/format-water.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+  <div class="wrap book-grid">
+    <div>
+      <p class="label">Запись</p>
+      <h2 class="h2 caps">Выберите<br><em>удобный</em> способ</h2>
+      <div class="msgr">
+        <a class="pill light" href="https://t.me/">Telegram</a>
+        <a class="pill light" href="https://max.ru/">MAX</a>
+        <a class="pill light" href="https://wa.me/">WhatsApp</a>
+      </div>
+    </div>
+    <div class="form">
+      <form id="lead-form" style="display:flex;flex-direction:column;gap:24px">
+        <h3>Оставьте контакты</h3>
+        <p class="hint">Ответим в течение дня и подберём время.</p>
+        <div class="field"><label for="f-name">Имя</label><input id="f-name" name="name" type="text" required placeholder="Как к вам обращаться" autocomplete="name"></div>
+        <div class="field"><label for="f-phone">Телефон</label><input id="f-phone" name="phone" type="tel" required placeholder="+7 900 000-00-00" autocomplete="tel"></div>
+        <label class="check" for="f-agree"><input id="f-agree" type="checkbox" required><span>Согласен на обработку персональных данных — <a href="#privacy">политика</a></span></label>
+        <button class="pill solid" type="submit" style="align-self:flex-start">Отправить</button>
+      </form>
+      <div class="ok" id="lead-ok" role="status">
+        <h3>Заявка принята</h3>
+        <p class="hint">Ответим в течение дня. (Демо: заявка пока никуда не уходит.)</p>
+        <button class="pill" type="button" id="lead-reset" style="align-self:flex-start">Заполнить ещё раз</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Отзывы -->
+<section class="reviews">
+  <div class="wrap">
+    <p class="label">Отзывы</p>
+    <h2 class="h2 caps" style="margin-top:20px">После <em>занятий</em></h2>
+    <div class="rev-grid">
+      <figure class="rev"><blockquote>«[Отзыв 1 — публикуем только с разрешения клиента]»</blockquote><figcaption>Имя клиента</figcaption></figure>
+      <figure class="rev"><blockquote>«[Отзыв 2 — публикуем только с разрешения клиента]»</blockquote><figcaption>Имя клиента</figcaption></figure>
+      <figure class="rev"><blockquote>«[Отзыв 3 — публикуем только с разрешения клиента]»</blockquote><figcaption>Имя клиента</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Вопросы -->
+<section class="faq-sec" id="faq">
+  <div class="wrap faq-grid">
+    <div>
+      <p class="label">Вопросы</p>
+      <h2 class="h2 caps" style="margin-top:20px">Частые<br><em>вопросы</em></h2>
+    </div>
+    <div>
+      <details class="faq" open><summary>Нужно ли уметь плавать?<span class="pm" aria-hidden="true"></span></summary><p>[Ответ уточнить у Лизы]</p></details>
+      <details class="faq"><summary>Что делать, если боюсь воды?<span class="pm" aria-hidden="true"></span></summary><p>[Ответ уточнить у Лизы]</p></details>
+      <details class="faq"><summary>Заменяет ли практика врача или психолога?<span class="pm" aria-hidden="true"></span></summary><p>Нет. Практика не заменяет медицинскую или психологическую помощь.</p></details>
+      <details class="faq"><summary>Как проходит первый визит?<span class="pm" aria-hidden="true"></span></summary><p>[Ответ уточнить у Лизы]</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="modal" id="cert" role="dialog" aria-modal="true" aria-label="Свидетельство на товарный знак Loremaqua">
+  <div class="modal-box">
+    <button class="modal-close" id="cert-close" type="button" aria-label="Закрыть">×</button>
+    <img src="media/certificate-1.jpg" alt="Свидетельство на товарный знак № 1074811" loading="lazy" width="910" height="1287">
+    <p>Свидетельство на товарный знак Loremaqua № 1074811</p>
+  </div>
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-word" aria-hidden="true">Loremaqua</div>
+    <div class="foot-cols">
+      <div><h4>Loremaqua</h4><p>Зарегистрированный товарный знак, свидетельство № 1074811.</p></div>
+      <div><h4>Разделы</h4><a href="#practice">Практика</a><a href="#formats">Форматы</a><a href="#price">Цена</a><a href="#faq">Вопросы</a></div>
+      <div><h4>Связаться</h4><a href="https://vk.com/">ВКонтакте</a><a href="https://instagram.com/">Instagram</a><a href="https://t.me/">Telegram</a><p style="margin-top:6px">[Телефон] · [Email]</p></div>
+      <div><h4>Важно</h4><p>Практика не заменяет медицинскую или психологическую помощь.</p><a id="privacy" href="#privacy" style="margin-top:8px">Политика обработки персональных данных</a></div>
+    </div>
+    <div class="legal"><span>© Лиза Попова</span><span>Loremaqua®</span></div>
+  </div>
+</footer>
+
+<a class="float-book" href="#booking" id="float-book" aria-label="Онлайн-запись">
+  <svg viewBox="0 0 104 104" aria-hidden="true"><defs><path id="circ" d="M52 52 m-40 0 a40 40 0 1 1 80 0 a40 40 0 1 1 -80 0"></path></defs><text font-size="8.5" letter-spacing="3.2" fill="#6E7270" font-family="Onest, sans-serif"><textPath href="#circ">LOREMAQUA · ТЁПЛАЯ ВОДА · </textPath></text></svg>
+  <span>Онлайн<br>запись</span>
+</a>
+
+<script>
+(function(){
+  // Шапка
+  var bar=document.getElementById('top-bar'),hero=document.getElementById('hero'),fb=document.getElementById('float-book'),bk=document.getElementById('booking');
+  function onScroll(){
+    var y=window.scrollY;
+    bar.classList.toggle('solid',y>hero.offsetHeight-90);
+    var r=bk.getBoundingClientRect();
+    fb.classList.toggle('hidden',y<200||(r.top<window.innerHeight&&r.bottom>0));
+  }
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);
+
+  // Фраза проявляется словами по мере прокрутки
+  var big=document.getElementById('big');
+  var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  (function split(node){
+    Array.prototype.slice.call(node.childNodes).forEach(function(n){
+      if(n.nodeType===3){
+        var frag=document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function(part){
+          if(!part)return;
+          if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(part));}
+          else{var s=document.createElement('span');s.className='w';s.textContent=part;frag.appendChild(s);}
+        });
+        node.replaceChild(frag,n);
+      } else if(n.nodeType===1){split(n);}
+    });
+  })(big);
+  var words=big.querySelectorAll('.w');
+  function reveal(){
+    var r=big.getBoundingClientRect(),vh=window.innerHeight;
+    var p=still?1:Math.min(1,Math.max(0,(vh*0.85-r.top)/(r.height+vh*0.35)));
+    var k=Math.round(p*words.length);
+    for(var i=0;i<words.length;i++)words[i].classList.toggle('on',i<k);
+  }
+  reveal();window.addEventListener('scroll',reveal,{passive:true});
+
+  // Видео о практике
+  var pv=document.getElementById('pv'),pc=document.getElementById('pv-cover');
+  pc.addEventListener('click',function(){pc.classList.add('hide');pv.controls=true;var r=pv.play();if(r&&r.catch)r.catch(function(){});});
+
+  // Форма (демо)
+  var f=document.getElementById('lead-form'),ok=document.getElementById('lead-ok');
+  f.addEventListener('submit',function(e){e.preventDefault();f.style.display='none';ok.classList.add('show');});
+  document.getElementById('lead-reset').addEventListener('click',function(){f.reset();ok.classList.remove('show');f.style.display='flex';});
+
+  // Сертификат
+  var m=document.getElementById('cert');
+  document.getElementById('cert-open').addEventListener('click',function(e){e.preventDefault();m.classList.add('open');document.getElementById('cert-close').focus();});
+  function closeM(){m.classList.remove('open');}
+  document.getElementById('cert-close').addEventListener('click',closeM);
+  m.addEventListener('click',function(e){if(e.target===m)closeM();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))closeM();});
+
+  // Фоновые видео играют только когда видны — меньше трафика и батареи на телефоне
+  var bg=document.querySelectorAll('video[autoplay]');
+  if('IntersectionObserver' in window && !still){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){var r=e.target.play();if(r&&r.catch)r.catch(function(){});}else{e.target.pause();}
+    });},{rootMargin:'120px'});
+    bg.forEach(function(v){io.observe(v);});
+  }
+  if(still){document.querySelectorAll('video[autoplay]').forEach(function(v){v.removeAttribute('autoplay');v.pause();});}
+})();
+</script>
+</body>
+</html>
