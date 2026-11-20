@@ -168,7 +168,7 @@ section[id]{scroll-margin-top:80px}
 .p-card .sum small{font-family:var(--body);font-size:15px;color:var(--grey);letter-spacing:0}
 .p-card .sum.tbd{font-size:32px;font-style:italic;color:var(--grey)}
 .p-card.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
-.p-card.dark .label,.p-card.dark .sum small{color:rgba(255,255,255,.6)}
+.p-card.dark .label,.p-card.dark .sum small,.p-card.dark .sum.tbd{color:rgba(255,255,255,.7)}
 .price-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin-top:28px;color:var(--grey)}
 @media (max-width:760px){.price-grid{grid-template-columns:1fr}.p-card{padding:32px;min-height:280px}}
 
@@ -390,13 +390,13 @@ section[id]{scroll-margin-top:80px}
     <div class="fmt-grid">
       <a class="fmt" href="#booking">
         <div class="media"><video src="media/format-water.mp4" poster="media/format-water.jpg" autoplay muted loop playsinline aria-hidden="true"></video><span class="tag">01</span></div>
-        <div class="cap"><h3>В воде</h3><span>17 000 ₽ / час</span></div>
+        <div class="cap"><h3>В воде</h3><span>1–2 часа</span></div>
         <p>Тёплая вода, погружение — по готовности.</p>
         <span class="more">Записаться <i></i></span>
       </a>
       <a class="fmt" href="#booking">
         <div class="media"><video src="media/format-land.mp4" poster="media/format-land.jpg" autoplay muted loop playsinline aria-hidden="true"></video><span class="tag">02</span></div>
-        <div class="cap"><h3>На суше</h3><span>[цена уточнить]</span></div>
+        <div class="cap"><h3>На суше</h3><span>1–2 часа</span></div>
         <p>Массажный стол, техники для тела и дыхания.</p>
         <span class="more">Записаться <i></i></span>
       </a>
@@ -431,12 +431,12 @@ section[id]{scroll-margin-top:80px}
       <div class="p-card dark">
         <span class="label">Формат 01</span>
         <h3>Практика в тёплой воде</h3>
-        <p class="sum">17 000 ₽ <small>/ час</small></p>
+        <p class="sum tbd">Стоимость уточняйте при записи</p>
       </div>
       <div class="p-card">
         <span class="label">Формат 02</span>
         <h3>Практика на суше</h3>
-        <p class="sum tbd">[цена уточнить]</p>
+        <p class="sum tbd">Стоимость уточняйте при записи</p>
       </div>
     </div>
     <div class="price-foot"><span>Длительность занятия — от 1 до 2 часов</span><a class="pill solid" href="#booking">Записаться</a></div>
