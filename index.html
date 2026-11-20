@@ -117,7 +117,8 @@ section[id]{scroll-margin-top:80px}
 .mini-facts{display:flex;flex-direction:column;border-top:1px solid var(--line)}
 .mini-facts div{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
 .mini-facts b{font-weight:400}
-@media (max-width:980px){.practice-grid{grid-template-columns:1fr}.vwrap{max-width:400px;margin:0 auto;width:100%}.practice .side.r{align-self:auto}}
+.practice .side .h2{font-size:clamp(34px,3.3vw,54px);overflow-wrap:anywhere}
+@media (max-width:1100px){.practice-grid{grid-template-columns:1fr}.practice .side .h2{font-size:clamp(40px,7vw,64px)}.vwrap{max-width:400px;margin:0 auto;width:100%}.practice .side.r{align-self:auto}}
 
 /* Шаги (1)(2)(3) */
 .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:64px}
