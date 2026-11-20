@@ -531,6 +531,14 @@ section[id]{scroll-margin-top:80px}
 </a>
 
 <script>
+// При открытии и обновлении — всегда с начала страницы
+(function(){
+  try{ if('scrollRestoration' in history) history.scrollRestoration='manual'; }catch(e){}
+  var h=location.hash;
+  if(h){ try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){} }
+  function top(){ var d=document.documentElement,b=d.style.scrollBehavior; d.style.scrollBehavior='auto'; window.scrollTo(0,0); d.style.scrollBehavior=b; }
+  top(); window.addEventListener('load',top); window.addEventListener('pageshow',top);
+})();
 (function(){
   // Шапка
   var bar=document.getElementById('top-bar'),hero=document.getElementById('hero'),fb=document.getElementById('float-book'),bk=document.getElementById('booking');
