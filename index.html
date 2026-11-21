@@ -96,8 +96,12 @@ section[id]{scroll-margin-top:80px}
 .about-text{padding:120px clamp(32px,7vw,120px);display:flex;flex-direction:column;justify-content:center;gap:30px}
 .about-text .quote{font-family:var(--display);font-weight:300;font-size:clamp(30px,3vw,44px);line-height:1.2}
 .about-text .quote em{font-style:italic}
+.bio{display:flex;flex-direction:column;gap:18px;max-width:36em}
+.bio p{font-size:17px;line-height:1.7;color:#3A3D3C}
+.bio p:last-child{font-family:var(--display);font-style:italic;font-size:24px;line-height:1.35;color:var(--ink);margin-top:6px}
 .sign{display:flex;align-items:center;gap:18px;margin-top:10px}
-.sign span{font-family:var(--display);font-size:26px;font-style:italic}
+.sign{flex-wrap:wrap}
+.sign span{font-family:var(--display);font-size:26px;font-style:italic;white-space:nowrap}
 .sign small{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grey)}
 @media (max-width:900px){.about{grid-template-columns:1fr}.about-photo{min-height:560px}.about-text{padding:72px 32px}}
 
@@ -339,7 +343,12 @@ section[id]{scroll-margin-top:80px}
   <div class="about-text">
     <p class="label">О Лизе</p>
     <p class="quote">Вода держит тело, когда ему наконец можно <em>ничего не делать</em>.</p>
-    <p class="text">[Текст «О Лизе» из текста для сайта — 2–3 абзаца о пути, подходе и о том, почему вода.]</p>
+    <div class="bio">
+      <p>Меня зовут Лиза, 25 лет моя профессиональная жизнь связана с водой и телом человека. Я начинала как тренер по плаванию, затем работала тренером по фридайвингу — именно тогда я по-настоящему прочувствовала, как вода влияет не только на физическое состояние, но и на психоэмоциональное. Этот опыт стал отправной точкой для перехода от спорта к телесно-ориентированной терапии.</p>
+      <p>В 2012 году я прошла обучение Ватсу (Watsu) — методике телесно-ориентированной терапии в тёплой воде с элементами шиатсу-массажа — у самого создателя этого направления, Гарольда Далла. Позже я углубила свои знания о теле, пройдя обучение по методу «Анатомические поезда» Томаса Майерса, а также обучение в остеопатическом институте. Соединив эти знания, я разработала собственный авторский подход, объединяющий подводные техники с остеопатическими и мануальными практиками. В 2024 году эта методика была официально зарегистрирована как патент — так появилась моя авторская программа «LoremAqua».</p>
+      <p>Сегодня я работаю не только в воде, но и на суше — на массажном столе, для тех, кто по каким-либо причинам не может погружаться в воду. В этом формате я применяю остеопатические и мануальные техники, а также работаю с дыхательной системой, помогая телу восстановить естественный баланс и свободу движения.</p>
+      <p>Моя цель — дать каждому человеку доступ к глубокому телесному расслаблению и восстановлению, независимо от того, готов он войти в воду или предпочитает работу на суше.</p>
+    </div>
     <div class="sign"><span>Лиза Попова</span><small>основатель Loremaqua</small></div>
   </div>
 </section>
