@@ -248,6 +248,18 @@ section[id]{scroll-margin-top:80px}
 .modal-box{position:relative;max-width:620px;width:100%;max-height:100%;overflow:auto;background:#fff;padding:20px}
 .modal-box img{width:100%;height:auto}
 .modal-box p{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey);margin:14px 4px 4px}
+.cg{max-width:1080px}
+.cg-head{display:flex;justify-content:space-between;align-items:center;gap:16px;position:sticky;top:-20px;background:#fff;padding:4px 0 14px;z-index:2}
+.cg-head .modal-close{float:none;position:static;margin:0}
+.cg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.cg-grid[hidden],.cg-view[hidden]{display:none}
+.cg-item{border:1px solid var(--line);background:var(--paper);padding:8px;cursor:pointer;aspect-ratio:1;display:flex;align-items:center;justify-content:center;transition:border-color .3s}
+.cg-item:hover{border-color:var(--ink)}
+.cg-item img{max-width:100%;max-height:100%;object-fit:contain}
+.cg-view img{width:100%;height:auto;max-height:70vh;object-fit:contain;background:var(--paper)}
+.cg-view p{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);margin:14px 0}
+.cg-nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.cg-nav span{display:flex;gap:8px}
 .modal-close{position:sticky;top:0;float:right;width:44px;height:44px;border-radius:50%;border:1px solid var(--ink);background:#fff;color:var(--ink);font-size:20px;cursor:pointer;margin:0 0 8px 8px}
 
 /* Телефон */
@@ -513,11 +525,40 @@ section[id]{scroll-margin-top:80px}
 </section>
 </main>
 
-<div class="modal" id="cert" role="dialog" aria-modal="true" aria-label="Свидетельство на товарный знак Loremaqua">
-  <div class="modal-box">
-    <button class="modal-close" id="cert-close" type="button" aria-label="Закрыть">×</button>
-    <img src="media/certificate-1.jpg" alt="Свидетельство на товарный знак № 1074811" loading="lazy" width="910" height="1287">
-    <p>Свидетельство на товарный знак Loremaqua № 1074811</p>
+<div class="modal" id="cert" role="dialog" aria-modal="true" aria-label="Сертификаты Лизы Поповой">
+  <div class="modal-box cg">
+    <div class="cg-head"><span class="label">Сертификаты · 21</span><button class="modal-close" id="cert-close" type="button" aria-label="Закрыть">×</button></div>
+    <div class="cg-grid" id="cg-grid">
+      <button type="button" class="cg-item" data-i="0" data-src="media/certs/c16.jpg" data-cap="Watsu® 1 · Russian Watsu Training Institute, 2013"><img src="media/certs/t16.jpg" alt="Watsu® 1 · Russian Watsu Training Institute, 2013" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="1" data-src="media/certs/c01.jpg" data-cap="Watsu® 2 · Russian Watsu Training Institute, 2013"><img src="media/certs/t01.jpg" alt="Watsu® 2 · Russian Watsu Training Institute, 2013" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="2" data-src="media/certs/c02.jpg" data-cap="Tantsuyoga · Гарольд Далл, 2013"><img src="media/certs/t02.jpg" alt="Tantsuyoga · Гарольд Далл, 2013" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="3" data-src="media/certs/c03.jpg" data-cap="Watsu 3 · Гарольд Далл, 2013"><img src="media/certs/t03.jpg" alt="Watsu 3 · Гарольд Далл, 2013" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="4" data-src="media/certs/c04.jpg" data-cap="Aquasoma® Essentials Specialist"><img src="media/certs/t04.jpg" alt="Aquasoma® Essentials Specialist" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="5" data-src="media/certs/c05.jpg" data-cap="Aquasoma® Essentials Specialist"><img src="media/certs/t05.jpg" alt="Aquasoma® Essentials Specialist" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="6" data-src="media/certs/c15.jpg" data-cap="Shiatsu I · International School of Watsu, 2014"><img src="media/certs/t15.jpg" alt="Shiatsu I · International School of Watsu, 2014" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="7" data-src="media/certs/c06.jpg" data-cap="CranioSacral Therapy 1 · Upledger Institute, 2022"><img src="media/certs/t06.jpg" alt="CranioSacral Therapy 1 · Upledger Institute, 2022" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="8" data-src="media/certs/c07.jpg" data-cap="CranioSacral Therapy 2 · Upledger Institute, 2022"><img src="media/certs/t07.jpg" alt="CranioSacral Therapy 2 · Upledger Institute, 2022" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="9" data-src="media/certs/c08.jpg" data-cap="Visceral Manipulation · Barral Institute, 2022"><img src="media/certs/t08.jpg" alt="Visceral Manipulation · Barral Institute, 2022" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="10" data-src="media/certs/c14.jpg" data-cap="Anatomy Trains · Томас Майерс, 2019"><img src="media/certs/t14.jpg" alt="Anatomy Trains · Томас Майерс, 2019" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="11" data-src="media/certs/c09.jpg" data-cap="Институт остеопатии и метавитоники"><img src="media/certs/t09.jpg" alt="Институт остеопатии и метавитоники" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="12" data-src="media/certs/c10.jpg" data-cap="Институт остеопатии и метавитоники"><img src="media/certs/t10.jpg" alt="Институт остеопатии и метавитоники" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="13" data-src="media/certs/c11.jpg" data-cap="Институт остеопатии и метавитоники"><img src="media/certs/t11.jpg" alt="Институт остеопатии и метавитоники" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="14" data-src="media/certs/c12.jpg" data-cap="Институт остеопатии и метавитоники"><img src="media/certs/t12.jpg" alt="Институт остеопатии и метавитоники" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="15" data-src="media/certs/c13.jpg" data-cap="Институт остеопатии и метавитоники"><img src="media/certs/t13.jpg" alt="Институт остеопатии и метавитоники" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="16" data-src="media/certs/c17.jpg" data-cap="Институт остеопатии и метавитоники"><img src="media/certs/t17.jpg" alt="Институт остеопатии и метавитоники" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="17" data-src="media/certs/c18.jpg" data-cap="Институт остеопатии и метавитоники"><img src="media/certs/t18.jpg" alt="Институт остеопатии и метавитоники" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="18" data-src="media/certs/c19.jpg" data-cap="Институт остеопатии и метавитоники"><img src="media/certs/t19.jpg" alt="Институт остеопатии и метавитоники" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="19" data-src="media/certs/c20.jpg" data-cap="Институт остеопатии и метавитоники"><img src="media/certs/t20.jpg" alt="Институт остеопатии и метавитоники" loading="lazy"></button>
+      <button type="button" class="cg-item" data-i="20" data-src="media/certificate-1.jpg" data-cap="Свидетельство на товарный знак Loremaqua № 1074811"><img src="media/certificate-1.jpg" alt="Свидетельство на товарный знак Loremaqua № 1074811" loading="lazy"></button>
+    </div>
+    <div class="cg-view" id="cg-view" hidden>
+      <img id="cg-img" src="" alt="">
+      <p id="cg-cap"></p>
+      <div class="cg-nav">
+        <button type="button" class="pill" id="cg-back">← Все сертификаты</button>
+        <span><button type="button" class="pill" id="cg-prev" aria-label="Предыдущий">←</button><button type="button" class="pill" id="cg-next" aria-label="Следующий">→</button></span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -596,11 +637,23 @@ section[id]{scroll-margin-top:80px}
   // Сертификат
   var m=document.getElementById('cert');
   document.getElementById('cert-open').addEventListener('click',function(e){e.preventDefault();m.classList.add('open');document.getElementById('cert-close').focus();});
-  function closeM(){m.classList.remove('open');}
+  function closeM(){m.classList.remove('open');list();}
   document.getElementById('cert-close').addEventListener('click',closeM);
   m.addEventListener('click',function(e){if(e.target===m)closeM();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))closeM();});
 
+  // Галерея сертификатов
+  var grid=document.getElementById('cg-grid'),view=document.getElementById('cg-view'),gi=document.getElementById('cg-img'),gc=document.getElementById('cg-cap');
+  var its=Array.prototype.slice.call(grid.querySelectorAll('.cg-item')),cur=0;
+  function show(i){cur=(i+its.length)%its.length;var b=its[cur];gi.src=b.dataset.src;gi.alt=b.dataset.cap;gc.textContent=(cur+1)+' / '+its.length+' · '+b.dataset.cap;grid.hidden=true;view.hidden=false;}
+  function list(){view.hidden=true;grid.hidden=false;}
+  its.forEach(function(b,i){b.addEventListener('click',function(){show(i);});});
+  document.getElementById('cg-prev').addEventListener('click',function(){show(cur-1);});
+  document.getElementById('cg-next').addEventListener('click',function(){show(cur+1);});
+  document.getElementById('cg-back').addEventListener('click',list);
+  document.addEventListener('keydown',function(e){if(!m.classList.contains('open')||view.hidden)return;if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1);});
+  var sx=null;view.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
+  view.addEventListener('touchend',function(e){if(sx===null)return;var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(cur+(d<0?1:-1));sx=null;});
   // Фоновые видео играют только когда видны — меньше трафика и батареи на телефоне
   var bg=document.querySelectorAll('video[autoplay]');
   if('IntersectionObserver' in window && !still){
