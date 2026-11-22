@@ -6,10 +6,58 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Loremaqua — Лиза Попова</title>
 <meta name="description" content="Лиза Попова. Авторская практика Loremaqua в тёплой воде и на суше.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/cormorant-garamond-latin-wght-normal.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/cormorant-garamond-cyrillic-wght-italic.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/onest-cyrillic-wght-normal.woff2">
 <style>
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-display: block;
+  font-weight: 300 700;
+  src: url(fonts/cormorant-garamond-cyrillic-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-display: block;
+  font-weight: 300 700;
+  src: url(fonts/cormorant-garamond-latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-display: block;
+  font-weight: 300 700;
+  src: url(fonts/cormorant-garamond-cyrillic-wght-italic.woff2) format('woff2-variations');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-display: block;
+  font-weight: 300 700;
+  src: url(fonts/cormorant-garamond-latin-wght-italic.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(fonts/onest-cyrillic-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+@font-face {
+  font-family: 'Onest';
+  font-style: normal;
+  font-display: block;
+  font-weight: 100 900;
+  src: url(fonts/onest-latin-wght-normal.woff2) format('woff2-variations');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
 /* Мир: белая галерея, в которую вставлена вода. Видео даёт цвет, всё остальное — чёрное, белое и воздух.
    Отсылки: тонкие прописные заголовки (Cartier, Bemont), огромные фразы на прокрутке (Apple), капсулы и чистая сетка (Потемки). */
 :root{
@@ -329,7 +377,7 @@ section[id]{scroll-margin-top:80px}
 <main>
 <!-- 1. Первый экран -->
 <section class="hero" id="hero">
-  <video id="hero-video" src="media/hero-water.mp4?v=2" poster="media/hero-water.jpg" preload="auto" autoplay muted loop playsinline aria-hidden="true"></video>
+  <video id="hero-video" src="media/hero-water.mp4?v=2" poster="media/hero-water.jpg" preload="metadata" muted loop playsinline aria-hidden="true"></video>
   <div class="wrap hero-in">
     <p class="label">Лиза Попова · авторская практика</p>
     <h1>Loremaqua</h1>
@@ -376,7 +424,7 @@ section[id]{scroll-margin-top:80px}
         <h2 class="h2 caps">Практика<br>в <em>тёплой</em><br>воде</h2>
       </div>
       <div class="vwrap">
-        <video id="pv" src="media/practice.mp4" poster="media/practice.jpg" preload="metadata" playsinline></video>
+        <video id="pv" src="media/practice.mp4" poster="media/practice.jpg" preload="none" playsinline></video>
         <button class="cover" id="pv-cover" type="button" aria-label="Смотреть видео о практике">
           <span class="play"><svg width="26" height="26" viewBox="0 0 28 28" aria-hidden="true"><path d="M9 6l14 8-14 8z" fill="#fff"></path></svg></span>
           <span class="meta">Смотреть · 0:33</span>
@@ -412,13 +460,13 @@ section[id]{scroll-margin-top:80px}
     </div>
     <div class="fmt-grid">
       <a class="fmt" href="#booking">
-        <div class="media"><video src="media/format-water-card.mp4" poster="media/format-water-card.jpg" autoplay muted loop playsinline aria-hidden="true"></video><span class="tag">01</span></div>
+        <div class="media"><video data-src="media/format-water-card.mp4" poster="media/format-water-card.jpg" preload="none" muted loop playsinline aria-hidden="true"></video><span class="tag">01</span></div>
         <div class="cap"><h3>В воде</h3><span>1–2 часа</span></div>
         <p>Тёплая вода, погружение — по готовности.</p>
         <span class="more">Записаться <i></i></span>
       </a>
       <a class="fmt" href="#booking">
-        <div class="media"><video src="media/format-land.mp4" poster="media/format-land.jpg" autoplay muted loop playsinline aria-hidden="true"></video><span class="tag">02</span></div>
+        <div class="media"><video data-src="media/format-land.mp4" poster="media/format-land.jpg" preload="none" muted loop playsinline aria-hidden="true"></video><span class="tag">02</span></div>
         <div class="cap"><h3>На суше</h3><span>1–2 часа</span></div>
         <p>Массажный стол, техники для тела и дыхания.</p>
         <span class="more">Записаться <i></i></span>
@@ -468,7 +516,7 @@ section[id]{scroll-margin-top:80px}
 
 <!-- 8. Запись — снова вода -->
 <section class="book" id="booking">
-  <video src="media/format-water.mp4" poster="media/format-water.jpg" autoplay muted loop playsinline aria-hidden="true"></video>
+  <video data-src="media/format-water.mp4" poster="media/format-water.jpg" preload="none" muted loop playsinline aria-hidden="true"></video>
   <div class="wrap book-grid">
     <div>
       <p class="label">Запись</p>
@@ -580,33 +628,6 @@ section[id]{scroll-margin-top:80px}
 </a>
 
 <script>
-// Safari может отложить автозапуск до возвращения на вкладку.
-(function(){
-  var video=document.getElementById('hero-video'),button=document.getElementById('hero-play');
-  function playHero(){
-    if(!video.paused || video.error)return;
-    video.muted=true;
-    video.play().catch(function(error){
-      if(error.name==='NotAllowedError')button.hidden=false;
-    });
-  }
-  function resumeHero(){
-    if(!document.hidden && video.getBoundingClientRect().bottom>0)playHero();
-  }
-  video.addEventListener('playing',function(){button.hidden=true;});
-  video.addEventListener('error',function(){button.hidden=true;});
-  button.addEventListener('click',playHero);
-  document.addEventListener('visibilitychange',resumeHero);
-  window.addEventListener('pageshow',resumeHero);
-})();
-// При открытии и обновлении — всегда с начала страницы
-(function(){
-  try{ if('scrollRestoration' in history) history.scrollRestoration='manual'; }catch(e){}
-  var h=location.hash;
-  if(h){ try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){} }
-  function top(){ var d=document.documentElement,b=d.style.scrollBehavior; d.style.scrollBehavior='auto'; window.scrollTo(0,0); d.style.scrollBehavior=b; }
-  top(); window.addEventListener('load',top); window.addEventListener('pageshow',top);
-})();
 (function(){
   // Шапка
   var bar=document.getElementById('top-bar'),hero=document.getElementById('hero'),fb=document.getElementById('float-book'),bk=document.getElementById('booking');
@@ -672,15 +693,48 @@ section[id]{scroll-margin-top:80px}
   document.addEventListener('keydown',function(e){if(!m.classList.contains('open')||view.hidden)return;if(e.key==='ArrowRight')show(cur+1);if(e.key==='ArrowLeft')show(cur-1);});
   var sx=null;view.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;},{passive:true});
   view.addEventListener('touchend',function(e){if(sx===null)return;var d=e.changedTouches[0].clientX-sx;if(Math.abs(d)>50)show(cur+(d<0?1:-1));sx=null;});
-  // Фоновые видео играют только когда видны — меньше трафика и батареи на телефоне
-  var bg=document.querySelectorAll('video[autoplay]');
-  if('IntersectionObserver' in window && !still){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){
-      if(e.isIntersecting){var r=e.target.play();if(r&&r.catch)r.catch(function(){});}else{e.target.pause();}
-    });},{rootMargin:'120px'});
-    bg.forEach(function(v){io.observe(v);});
+  // Загружаем фоновые ролики, только когда они появляются на экране.
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const heroVideo = document.getElementById('hero-video');
+  const playButton = document.getElementById('hero-play');
+  const videos = [heroVideo, ...document.querySelectorAll('video[data-src]')];
+  const visible = new Set();
+  let manualHero = false;
+
+  function updateVideo(video) {
+    const manual = video === heroVideo && manualHero;
+    if (document.hidden || !visible.has(video) || (motion.matches && !manual)) {
+      video.pause();
+      return;
+    }
+    if (!video.src && video.dataset.src) video.src = video.dataset.src;
+    video.play().catch(function(error) {
+      if (video === heroVideo && error.name === 'NotAllowedError') playButton.hidden = false;
+    });
   }
-  if(still){document.querySelectorAll('video[autoplay]').forEach(function(v){v.removeAttribute('autoplay');v.pause();});}
+  function updateVideos() { videos.forEach(updateVideo); }
+  playButton.hidden = !motion.matches;
+  playButton.addEventListener('click', function() {
+    manualHero = true;
+    visible.add(heroVideo);
+    updateVideo(heroVideo);
+  });
+  heroVideo.addEventListener('playing', function() { playButton.hidden = true; });
+  motion.addEventListener('change', function() {
+    manualHero = false;
+    playButton.hidden = !motion.matches;
+    updateVideos();
+  });
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) visible.add(entry.target);
+      else visible.delete(entry.target);
+      updateVideo(entry.target);
+    });
+  });
+  videos.forEach(function(video) { observer.observe(video); });
+  document.addEventListener('visibilitychange', updateVideos);
+  window.addEventListener('pageshow', updateVideos);
 })();
 </script>
 </body>
