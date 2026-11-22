@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  // При обновлении открываем первый экран, сохраняя прямые ссылки на разделы.
+  if (performance.getEntriesByType('navigation')[0]?.type === 'reload') {
+    history.scrollRestoration = 'manual';
+    if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
+    window.addEventListener('pageshow', function () {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, { once: true });
+  }
+</script>
 <meta name="robots" content="noindex, nofollow">
 <title>Loremaqua — Лиза Попова</title>
 <meta name="description" content="Лиза Попова. Авторская практика Loremaqua в тёплой воде и на суше.">
